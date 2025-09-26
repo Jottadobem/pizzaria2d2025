@@ -1,9 +1,13 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 const Produtos = () => {
+    //estado com lista de pizzas
     const [pizzas, setPizzas] = useState([])
     // Objeto com a lista de pizzas
     useEffect(()=>{
+        //GET - busca os dados da rota ou endpoint
+        //then - método assincrono, espera o retorno da requisição
+        //catch - tratamenta de erros da requisição 
         axios.get("http://172.19.0.49/pizzariaoficial/api/v1/produto")
         .then(response=>{
             setPizzas(response.data.data)
